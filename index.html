@@ -11,19 +11,14 @@
         <link rel="stylesheet" href="css/main.css">
 
         <script src="js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+        
     </head>
     <body>
 
         <div class="header-container">
             <header class="wrapper clearfix">
                 <h1 class="title">BMI Calculator</h1>
-                <!--<nav>
-                    <ul>
-                        <li><a href="#">nav ul li a</a></li>
-                        <li><a href="#">nav ul li a</a></li>
-                        <li><a href="#">nav ul li a</a></li>
-                    </ul>
-                </nav>-->
             </header>
         </div>
 
@@ -37,7 +32,7 @@
                     <section>
                         <p>The body mass index (BMI) or Quetelet index is a value derived from the mass (weight) and height of an individual. The BMI is defined as the body mass divided by the square of the body height, and is universally expressed in units of kg/m2, resulting from mass in kilograms and height in metres.
                         </p>
-						<p>The BMI may also be determined using a table[note 2] or chart which displays BMI as a function of mass and height using contour lines or colours for different BMI categories, and which may use other units of measurement (converted to metric units for the calculation).
+						<p>The BMI may also be determined using a table or chart which displays BMI as a function of mass and height using contour lines or colours for different BMI categories, and which may use other units of measurement (converted to metric units for the calculation).
 						</p>
 						<p>The BMI is an attempt to quantify the amount of tissue mass (muscle, fat, and bone) in an individual, and then categorize that person as underweight, normal weight, overweight, or obese based on that value. However, there is some debate about where on the BMI scale the dividing lines between categories should be placed. Commonly accepted BMI ranges are underweight: under 18.5 kg/m2, normal weight: 18.5 to 25, overweight: 25 to 30, obese: over 30. People of Asian descent have different associations between BMI, percentage of body fat, and health risks than those of European descent, with a higher risk of type 2 diabetes and cardiovascular disease at BMIs lower than the WHO cut-off point for overweight, 25 kg/m2, although the cutoff for observed risk varies among different Asian populations.</p>
                     </section>
@@ -49,17 +44,28 @@
                 <aside>
                     <h3>Calculate BMI</h3>
 					<p>Please input the following details:</p>
-					<label for="Height">Height</label>
-  					<input type="text"  id="Height" value="Height"><br>
-  					<label for="Weight">Weight</label>
-  					<input type="text"  id="Weight" value="Weight"><br>
-					<a href="#" id="btnCalc">Calculate</a>
-					<p>Result</p>
+					<form ng-app="myApp" ng-controller="validateCtrl" name="myForm" novalidate>
+    				<p>Enter your height: <input type="text" id="height" ng-model="height" required>
+						<select type="multiple" id="heightunits" ng-name="heightunits">
+							<option value="metres" selected="selected">metres</option>
+							<option value="inches">inches</option>
+						</select>
+    				</p>
+    				<p>Enter your weight: <input type="text" id="weight" ng-model="weight" required>
+						<select type="multiple" id="weightunits" ng-name="weightunits">
+							<option value="kg" selected="selected">kilograms</option>
+							<option value="lb">pounds</option>
+						</select>
+					</p>
+   					<p><input type="submit" ng-disabled="(myForm.height.$dirty && myForm.height.$invalid) || (myForm.weight.$dirty && myForm.weight.$invalid)" value="computeBMI" onclick="computeBMI();">
+    				</p>
+					</form>
                 </aside>
-				</br>
-                <aside>
+		
+                <aside id="Results" ng-name="results">
 					<h3>Your Result</h3>
-					<p></p>
+					<p>Your BMI is: <span id="output">?</span></p>
+					<p>This means you are: <span id="comment">-</span></p> 
 				</aside>
 
             </div> <!-- #main -->
@@ -70,7 +76,7 @@
                 <h3>footer</h3>
             </footer>
         </div>
-
+		
         <script src="js/main.js"></script>
     </body>
 </html>
