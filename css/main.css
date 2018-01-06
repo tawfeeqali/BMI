@@ -51,6 +51,22 @@ textarea {
     padding: 0.2em 0;
 }
 
+aside a{
+	text-decoration: none;
+
+	color:white;
+	margin:20px;
+	padding: 10px;
+	background-color: #e44d26;
+	border-radius: 5px;
+}
+
+aside input{
+	margin: 10px;
+	border-radius: 5px;
+	box-shadow: 0;
+	color:grey;
+}
 
 /* ===== Initializr Styles ==================================================
    Author: Jonathan Verrecchia - verekia.com/initializr/responsive-template
@@ -76,6 +92,7 @@ body {
 .footer-container,
 .main aside {
     border-top: 20px solid #e44d26;
+	margin-top:20px;
 }
 
 .header-container,
