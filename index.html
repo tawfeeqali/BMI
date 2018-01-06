@@ -12,6 +12,8 @@
 
         <script src="js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
 		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+       	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  		<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
         
     </head>
     <body>
@@ -45,19 +47,19 @@
                     <h3>Calculate BMI</h3>
 					<p>Please input the following details:</p>
 					<form ng-app="myApp" ng-controller="validateCtrl" name="myForm" novalidate>
-    				<p>Enter your height: <input type="text" id="height" ng-model="height" required>
+    				<p>Enter your height: <input type="text" id="height" ng-model="myheight" required>
 						<select type="multiple" id="heightunits" ng-name="heightunits">
 							<option value="metres" selected="selected">metres</option>
 							<option value="inches">inches</option>
 						</select>
     				</p>
-    				<p>Enter your weight: <input type="text" id="weight" ng-model="weight" required>
+    				<p>Enter your weight: <input type="text" id="weight" ng-model="myweight" required>
 						<select type="multiple" id="weightunits" ng-name="weightunits">
 							<option value="kg" selected="selected">kilograms</option>
 							<option value="lb">pounds</option>
 						</select>
 					</p>
-   					<p><input type="submit" ng-disabled="(myForm.height.$dirty && myForm.height.$invalid) || (myForm.weight.$dirty && myForm.weight.$invalid)" value="computeBMI" onclick="computeBMI();">
+   					<p><input id="calcBMI" type="submit" ng-disabled="(myForm.myheight.$dirty) || (myForm.myweight.$dirty)" value="computeBMI" onclick="computeBMI();" class="ui-state-default ui-corner-all">
     				</p>
 					</form>
                 </aside>

@@ -5,14 +5,21 @@
     //the module value for "helper/util"
 	alert(calc(154,88,true));
 });*/
-
+var options = {}
 var app = angular.module('myApp', []);
 app.controller('validateCtrl', function($scope) {
-	
+	$scope.myheight = 0.0;
+	$scope.myweight = 0.0;
+});
+
+
+$( "#calcBMI" ).on( "click", function() {
+      $( "#Results" ).show( "blind", options, 500 );
 });
 
 function computeBMI()
     {
+		
         //Obtain user inputs
         var height=Number(document.getElementById("height").value);
         var heightunits=document.getElementById("heightunits").value;
