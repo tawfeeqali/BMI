@@ -32,13 +32,15 @@ function computeBMI()
     {		
         //Obtain user inputs
         var height=Number($("#height").val());
-        var heightunits=$("heightunits").val();
+        var heightunits=$("#heightunits").val();
         var weight=Number($("#weight").val());
         var weightunits=$("#weightunits").val();
 
         //Convert all units to metric
-        if (heightunits=="inches") {height/=39.3700787;}
-        if (weightunits=="lb") {weight/=2.20462;}
+        if (heightunits=="inches") 
+			height/=39.3700787;
+        if (weightunits=="lb") 
+			weight/=2.20462;
 
         //Perform calculation
         var BMI=weight/Math.pow(height,2);
