@@ -48,6 +48,6 @@ function computeBMI()
 		$("#output").text(output);
         if (output<18.5) 						{$("#comment").text("Underweight");}
       	else   if (output>=18.5 && output<=25)	{$("#comment").text("Normal");}
-     	else   if (output>=25 && output<=30)	{$("#comment").text("Obese");}
-     	else   if (output>30)					{$("#comment").text("Overweight");}
+     	else   if (output>=25 && output<=30)	{$("#comment").text("Overweight");}
+     	else   if (output>30)					{$("#comment").text("Obese");}
     }
