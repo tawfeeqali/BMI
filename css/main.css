@@ -51,24 +51,6 @@ textarea {
     padding: 0.2em 0;
 }
 
-aside submit{
-	text-decoration: none;	
-	color:white;
-	margin:20px;
-	padding: 10px;
-	background-color: #e44d26;
-	border-radius: 5px;
-}
-
-aside input{
-	
-	color: gray;
-}
-
-aside select
-{
-	color:gray;
-}
 /* ===== Initializr Styles ==================================================
    Author: Jonathan Verrecchia - verekia.com/initializr/responsive-template
    ========================================================================== */
@@ -176,17 +158,35 @@ nav a:hover {
 	display:none;
 }
 
+.errMsg{
+	font-size: .8em;
+	font-style: italic;
+	color:firebrick;
+	text-align: right;
+	margin: 0;
+	padding-top:0;
+	font-style: italic
+}
 
+#btnCalc{
+	text-decoration: none;	
+	color:#e44d26;
+	margin:20px;
+	padding: 10px;
+	background-color: #fff;
+	border-radius: 5px;
+}
 
+aside input{
+	
+	color: gray;
+}
 
-
-
-
-
-
-
-
-
+aside select
+{
+	color:gray;
+	border: 1px white;
+}
 
 
 /* ==========================================================================

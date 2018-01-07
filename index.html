@@ -51,7 +51,8 @@
 						<select type="multiple" id="heightunits" name="heightunits">
 							<option value="metres" selected="selected">metres</option>
 							<option value="inches">inches</option>
-						</select>
+						</select><br/>
+   						<em class="errMsg"></em>
     				</p>
     				<p>
 						<label for="weight">Enter your weight: </label>
@@ -59,10 +60,11 @@
 						<select type="multiple" id="weightunits" name="weightunits">
 							<option value="kg" selected="selected">kilograms</option>
 							<option value="lb">pounds</option>
-						</select>
+						</select><br/>
+						<em class="errMsg"></em>
 					</p>
-   					<p>
-   						<input id="calcBtn" type="submit" value="Calculate">
+   					<p style="text-align: center">
+   						<input id="btnCalc" type="submit" value="Calculate" class="btnCalc">
     				</p>
 					</form>
                 </aside>

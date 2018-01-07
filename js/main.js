@@ -5,15 +5,22 @@ $.validator.setDefaults({
 
 $("#calcForm").validate({
 	rules: {
-		  height: {required: true, digits: true, minlength: 1},
+		  height: {required: true, number: true, minlength: 1},
 		  weight: {required: true, digits: true, minlength: 1}
 	},
 	messages: {
-    	height: {digits: "Please enter digits",
+    	height: {
+				required: "Height is required",
+				number: "Please enter height as number",
 				minlength: "Please enter atleast one digit"},
-    	weight: {digits: "Please enter digits",
+    	weight: {
+				required: "Weight is required",
+				digits: "Please enter weight as number",
 				minlength: "Please enter atleast one digit"}
     },
+	errorPlacement: function(error, element) {
+    	error.appendTo( element.parent("p").find("em") );
+  	},
 	submitHandler: function(form) {
 		computeBMI();
 		var options = {};
