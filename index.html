@@ -11,10 +11,8 @@
         <link rel="stylesheet" href="css/main.css">
 
         <script src="js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
-       	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-  		<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-       	<script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.17.0/dist/jquery.validate.js"></script>
-        
+       	<script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+  		<script src="https://code.jquery.com/ui/1.11.1/jquery-ui.min.js"></script>
     </head>
     <body>
 
@@ -44,28 +42,33 @@
                 </article>
 
                 <aside>
-                    <h3>Calculate BMI</h3>
+                    <h3>Calculate your BMI</h3>
 					<p>Please input the following details:</p>
 					<form  id="calcForm" >
-    				<p>Enter your height: <input type="text" id="height" minlength="1" required>
-						<select type="multiple" id="heightunits" >
-							<option value="metres" selected="selected">meters</option>
+    				<p>
+						<label for="height">Enter your height: </label>
+						<input type="text" id="height" name="height">
+						<select type="multiple" id="heightunits" name="heightunits">
+							<option value="metres" selected="selected">metres</option>
 							<option value="inches">inches</option>
 						</select>
     				</p>
-    				<p>Enter your weight: <input type="text" id="weight" minlength="1" required>
-						<select type="multiple" id="weightunits" >
+    				<p>
+						<label for="weight">Enter your weight: </label>
+						<input type="text" id="weight" name="weight">
+						<select type="multiple" id="weightunits" name="weightunits">
 							<option value="kg" selected="selected">kilograms</option>
 							<option value="lb">pounds</option>
 						</select>
 					</p>
-   					<p><input id="calcBtn" type="submit" value="Calculate" class="ui-state-default ui-corner-all">
+   					<p>
+   						<input id="calcBtn" type="submit" value="Calculate">
     				</p>
 					</form>
                 </aside>
 		
                 <aside id="Results" >
-					<h3>Your Result</h3>
+					<h3>Your Results</h3>
 					<p>Your BMI is: <span id="output"></span></p>
 					<p>This means you are: <span id="comment"></span></p> 
 				</aside>
@@ -78,7 +81,8 @@
                 <h3>BMI Calculator 2018</h3>
             </footer>
         </div>
-		
+		<script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script>
+		<script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/additional-methods.min.js"></script>
         <script src="js/main.js"></script>
     </body>
 </html>

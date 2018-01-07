@@ -1,11 +1,25 @@
+$.validator.setDefaults({
+  debug: true,
+  success: "valid"
+});
 
 $("#calcForm").validate({
-  submitHandler: function(form) {
-    	computeBMI();
-	  	var options = {};
-      	$( "#Results" ).show("blind", options, 500);
-  }
- });
+	rules: {
+		  height: {required: true, digits: true, minlength: 1},
+		  weight: {required: true, digits: true, minlength: 1}
+	},
+	messages: {
+    	height: {digits: "Please enter digits",
+				minlength: "Please enter atleast one digit"},
+    	weight: {digits: "Please enter digits",
+				minlength: "Please enter atleast one digit"}
+    },
+	submitHandler: function(form) {
+		computeBMI();
+		var options = {};
+		$( "#Results" ).show("blind", options, 500);
+	}
+});
 
 function computeBMI()
     {		
@@ -16,8 +30,8 @@ function computeBMI()
         var weightunits=$("#weightunits").val();
 
         //Convert all units to metric
-        if (heightunits=="inches") height/=39.3700787;
-        if (weightunits=="lb") weight/=2.20462;
+        if (heightunits=="inches") {height/=39.3700787;}
+        if (weightunits=="lb") {weight/=2.20462;}
 
         //Perform calculation
         var BMI=weight/Math.pow(height,2);
@@ -25,12 +39,8 @@ function computeBMI()
         //Display result of calculation
         var output =  Math.round(BMI*100)/100;
 		$("#output").text(output);
-        if (output<18.5)
-        $("#comment").text("Underweight");
-      	else   if (output>=18.5 && output<=25)
-        $("#comment").text("Normal");
-     	else   if (output>=25 && output<=30)
-        $("#comment").text("Obese");
-     	else   if (output>30)
-        $("#comment").text("Overweight");
+        if (output<18.5) 						{$("#comment").text("Underweight");}
+      	else   if (output>=18.5 && output<=25)	{$("#comment").text("Normal");}
+     	else   if (output>=25 && output<=30)	{$("#comment").text("Obese");}
+     	else   if (output>30)					{$("#comment").text("Overweight");}
     }
